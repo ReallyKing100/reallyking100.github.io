@@ -186,9 +186,9 @@ button, input, textarea { font: inherit; }
   }
   .logo, .main-nav, .nav-cta { display: none; }
   .main-nav {
-    display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 2px;
+    display: flex; width: 100%; justify-content: center; align-items: center; gap: clamp(2px, 1vw, 8px);
   }
-  .main-nav a { padding: 8px 6px; font-size: .68rem; white-space: nowrap; }
+  .main-nav a { padding: 8px 4px; font-size: .68rem; white-space: nowrap; }
   .main-nav .home-link {
     display: grid; place-items: center; flex: 0 0 34px; width: 34px; height: 36px; padding: 0;
     color: var(--ink);
