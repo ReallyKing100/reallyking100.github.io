@@ -42,6 +42,20 @@ const menuBtn = document.getElementById('menuBtn');
 const sideMenu = document.getElementById('sideMenu');
 const overlay = document.getElementById('overlay');
 const menuLinks = document.querySelectorAll('.menu-link');
+const siteHeader = document.getElementById('siteHeader');
+const heroStats = document.querySelector('.hero-stats');
+const mobileHeaderBreakpoint = window.matchMedia('(max-width: 799px)');
+
+function updateMobileHeaderVisibility() {
+  const showHeader = mobileHeaderBreakpoint.matches && heroStats.getBoundingClientRect().bottom <= 0;
+  siteHeader.classList.toggle('mobile-visible', showHeader);
+  siteHeader.inert = mobileHeaderBreakpoint.matches && !showHeader;
+}
+
+window.addEventListener('scroll', updateMobileHeaderVisibility, { passive: true });
+window.addEventListener('resize', updateMobileHeaderVisibility);
+mobileHeaderBreakpoint.addEventListener('change', updateMobileHeaderVisibility);
+updateMobileHeaderVisibility();
 
 function toggleMenu(force) {
   const isOpen = force !== undefined ? force : !sideMenu.classList.contains('open');

@@ -177,8 +177,12 @@ button, input, textarea { font: inherit; }
 }
 @media (max-width: 799px) {
   .header {
-    top: auto; bottom: 12px; width: calc(100% - 20px); height: auto; min-height: 54px;
+    top: 16px; bottom: auto; width: calc(100% - 20px); height: auto; min-height: 54px;
     padding: 6px; justify-content: center;
+    transform: translate(-50%, calc(-100% - 30px)); opacity: 0; visibility: hidden; pointer-events: none;
+  }
+  .header.mobile-visible {
+    transform: translate(-50%, 0); opacity: 1; visibility: visible; pointer-events: auto;
   }
   .logo, .main-nav, .nav-cta { display: none; }
   .main-nav {
@@ -232,7 +236,7 @@ button, input, textarea { font: inherit; }
   .services-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
 }
 @media (max-width: 420px) {
-  .header { top: auto; bottom: 10px; width: calc(100% - 20px); height: auto; min-height: 58px; }
+  .header { top: 10px; bottom: auto; width: calc(100% - 20px); height: auto; min-height: 58px; }
   .hero { padding: 66px 14px 12px; }
   .hero-subtitle { margin-bottom: 12px; font-size: clamp(.9rem, 4vw, 1.05rem); }
   .hero-actions { gap: 8px; }
